@@ -774,6 +774,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseEnemyPrefab: {fileID: 4057472541901104552, guid: d2ff67dd4ea0f2a44b0740f5f31220d5, type: 3}
   valuableEnemyPrefab: {fileID: 3188884790880822501, guid: 3d062cd1068d0144f914e370561f129a, type: 3}
+  shieldingEnemyPrefab: {fileID: 3522642954962491321, guid: 27bcf82f305bfbb4984caa8ba69fb28f, type: 3}
   minSpawnTime: 1
   maxSpawnTime: 2
   scoreText: {fileID: 1245326138}

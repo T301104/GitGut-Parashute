@@ -35,11 +35,11 @@ public class GameManager : MonoBehaviour
 
         //set the text correctly
         scoreText.text = "Score: " + score.ToString();
-        livesText.text = "Lives: " + lives.ToString();
-    }
+		livesText.text = "Lives: " + lives.ToString() + " Shield: " + shield.ToString();
+	}
 
-    // Update is called once per frame
-    void Update()
+	// Update is called once per frame
+	void Update()
     {
         //if the lives get to 0 move to the game over screen
         if (lives <=0)
@@ -77,18 +77,22 @@ public class GameManager : MonoBehaviour
     public void IncreaseShield(int shieldValue)
     {
         shield += shieldValue;
-    }
+		livesText.text = "Lives: " + lives.ToString() + " Shield: " + shield.ToString();
 
-    public void LooseLives (int damage)
+	}
+
+	public void LooseLives (int damage)
     {
         if (shield > 0)
         {
             shield--;
-        }
-        else
+			livesText.text = "Lives: " + lives.ToString() + " Shield: " + shield.ToString();
+
+		}
+		else
         {
         lives -= damage;
-        livesText.text = "Lives: " + lives.ToString();
+        livesText.text = "Lives: " + lives.ToString() + " Shield: " + shield.ToString();
         }
     }
 
