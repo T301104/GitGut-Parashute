@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    [SerializeField] protected float minXSpeed = -2f;
-    [SerializeField] protected float maxXSpeed = 2f;
-    [SerializeField] protected float minYSpeed = -2.4f;
-    [SerializeField] protected float maxYSpeed = -3.8f;
+    [SerializeField] protected float minXSpeed = -3;
+    [SerializeField] protected float maxXSpeed = 3;
+    [SerializeField] protected float minYSpeed = -3;
+    [SerializeField] protected float maxYSpeed = -4;
 
     protected int damage = 1;
     protected int points = 1;

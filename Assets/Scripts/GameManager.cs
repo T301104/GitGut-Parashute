@@ -8,12 +8,14 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
     [SerializeField] private GameObject baseEnemyPrefab;
     [SerializeField] private GameObject valuableEnemyPrefab;
+    [SerializeField] private GameObject shieldingEnemyPrefab;
     private GameObject currentEnemy;
     private Collider2D spawnLimits;
     [SerializeField] private float minSpawnTime = 1;
     [SerializeField] private float maxSpawnTime = 2;
     private int score = 0;
     private int lives = 5;
+    private int shield = 0;
     private bool shouldSpawn = true;
     private float spawnTime;
     [SerializeField] private TextMeshProUGUI scoreText;
@@ -44,15 +46,20 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene("GameOver");
         }
+
         //if should spawn execute the spawn coroutine
         if (shouldSpawn)
         {
             //randomly decide what enemy should be spawned
-            int enemy = 0;//Random.Range(0, 10);
+            int enemy = Random.Range(0, 10);
             Debug.Log("enemy:" + enemy);
             if (enemy == 0)
             {
                 StartCoroutine(Spawn(valuableEnemyPrefab));
+            }
+            else if (enemy == 1)
+            {
+                StartCoroutine (Spawn(shieldingEnemyPrefab));
             }
             else
             {
@@ -67,10 +74,22 @@ public class GameManager : MonoBehaviour
         scoreText.text = "Score: " + GameManager.Instance.score.ToString();
     }
 
+    public void IncreaseShield(int shieldValue)
+    {
+        shield += shieldValue;
+    }
+
     public void LooseLives (int damage)
     {
-        lives-= damage;
+        if (shield > 0)
+        {
+            shield--;
+        }
+        else
+        {
+        lives -= damage;
         livesText.text = "Lives: " + lives.ToString();
+        }
     }
 
     private IEnumerator Spawn(GameObject objectToSpawn)
