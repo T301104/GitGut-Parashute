@@ -102,10 +102,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db4e0a76f987b62419fd0a41ff5405dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minXSpeed: -3
-  maxXSpeed: 3
-  minYSpeed: -3
-  maxYSpeed: -4
+  minXSpeed: -3.5
+  maxXSpeed: 3.5
+  minYSpeed: -3.5
+  maxYSpeed: -4.5
 --- !u!50 &7374159019161721706
 Rigidbody2D:
   serializedVersion: 5

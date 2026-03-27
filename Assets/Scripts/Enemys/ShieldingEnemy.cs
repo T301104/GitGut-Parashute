@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ShieldingEnemy : EnemyMovement
 {
-	private int shieldValue = 2;
+	private int shieldValue = 1;
 	private void Start()
 	{
 		OnStartBase();
