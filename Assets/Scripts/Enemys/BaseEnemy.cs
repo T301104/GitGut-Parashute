@@ -4,7 +4,7 @@ public class BaseEnemy : EnemyMovement
 {
 	public void Start()
 	{
-		OnStartBase();
+		SetUp();
 	}
 	public override void OnPlayerCollision()
 	{

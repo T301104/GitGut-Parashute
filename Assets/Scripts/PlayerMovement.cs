@@ -12,7 +12,6 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private float mouseDeadZone = 1.5f;
 
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -24,7 +23,6 @@ public class PlayerMovement : MonoBehaviour
     {
         //do the math for the mouse ahead of time, correcting for it taking the entire UI screen size instead of the camera screen size
         mouseX = Camera.main.ScreenToWorldPoint(Input.mousePosition).x;
-		//Input.mousePosition.x / 107;
 		Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         //if the mouse is moved use the mouse inputs, otherwise use the keyboard/controller inputs and ignore the mouse potition

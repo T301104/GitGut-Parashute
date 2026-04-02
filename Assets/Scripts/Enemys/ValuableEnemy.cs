@@ -10,7 +10,6 @@ public class ValuableEnemy : EnemyMovement
 
 	private bool shouldChangeDirection = true;
 
-
 	//the valuable enemy will move faster, and give more points when picked up.
 	//it won't make the player lose HP if they miss it since it might at times be impossible to get
 
@@ -22,19 +21,19 @@ public class ValuableEnemy : EnemyMovement
 		minYSpeed *= speedMultiplier;
 		maxYSpeed *= speedMultiplier;
 
-		OnStartBase();
+		SetUp();
 	}
 
-	public override void move()
+	public override void Move()
 	{
 		if (shouldChangeDirection)
 		{
-			StartCoroutine(changeFallingDirection());
+			StartCoroutine(ChangeFallingDirection());
 		}
-		base.move();
+		base.Move();
 	}
 
-	private IEnumerator changeFallingDirection()
+	private IEnumerator ChangeFallingDirection()
 	{
 		shouldChangeDirection = false;
 		if (ySpeed < 0)

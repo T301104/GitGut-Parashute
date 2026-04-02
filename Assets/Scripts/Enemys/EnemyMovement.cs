@@ -13,8 +13,7 @@ public class EnemyMovement : MonoBehaviour
     private float xSpeed;
     protected float ySpeed;
 
-
-	public void OnStartBase()
+	public void SetUp()
 	{
 		//set the speeds to a value between the random ranges
 		xSpeed = Random.Range(minXSpeed, maxXSpeed);
@@ -24,31 +23,29 @@ public class EnemyMovement : MonoBehaviour
 	void FixedUpdate()
     {
         //move enemy
-        move();
+        Move();
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
         //turn orb around when hitting a wall
-        if (collision.gameObject.tag == "Wall")
+        if (collision.gameObject.CompareTag("Wall"))
         {
             xSpeed = xSpeed * -1;
         }
-
-        //remove orb when hitting player and add score
-        if (collision.gameObject.tag == "Player")
+        //Run Player collision on hitting player
+        else if (collision.gameObject.CompareTag("Player"))
         {
             OnPlayerCollision();
         }
-
-        //remove orb when it gets too low and lower the lives
-        if (collision.gameObject.tag == "Floor")
+        //Run floor collision on hitting the floor
+        else if (collision.gameObject.CompareTag("Floor"))
         {
             OnFloorCollision();
         }
     }
 
-    public virtual void move()
+    public virtual void Move()
     {
 		transform.position = transform.position + new Vector3(xSpeed, ySpeed, 0) * Time.deltaTime;
 	}

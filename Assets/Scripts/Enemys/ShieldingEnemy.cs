@@ -5,7 +5,7 @@ public class ShieldingEnemy : EnemyMovement
 	private int shieldValue = 1;
 	private void Start()
 	{
-		OnStartBase();
+		SetUp();
 	}
 
 	public override void OnPlayerCollision()
@@ -18,5 +18,4 @@ public class ShieldingEnemy : EnemyMovement
 	{
 		base.OnFloorCollision();
 	}
-
 }

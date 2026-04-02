@@ -36,7 +36,6 @@ public class Spawner : MonoBehaviour
 		}
 	}
 
-
 	private void Spawn(GameObject objectToSpawn)
 	{
 		//wait for the timer value then spawn an enemy and randomise the spawn timer

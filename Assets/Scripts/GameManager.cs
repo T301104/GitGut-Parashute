@@ -9,12 +9,12 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private float minSpawnTime = 1;
     [SerializeField] private float maxSpawnTime = 2;
+	private float spawnTime;
+	private bool keepSpawning = true;
 
     private int score = 0;
     private int lives = 5;
     private int shield = 0;
-
-    private float spawnTime;
 
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI livesText;
@@ -86,7 +86,10 @@ public class GameManager : MonoBehaviour
 		yield return new WaitForSeconds(spawnTime);
 
 		OnSpawn?.Invoke(shield);
-        StartCoroutine(Spawn());
+        if (keepSpawning)
+        {
+            StartCoroutine(Spawn());
+        }
     }
 }
 
