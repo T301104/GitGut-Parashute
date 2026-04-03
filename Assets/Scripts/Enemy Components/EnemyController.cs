@@ -15,22 +15,22 @@ public class EnemyController : MonoBehaviour
 
 	private void Update()
 	{
-		movementClass.move();
+		movementClass.Move();
 	}
 
 	void OnCollisionEnter2D(Collision2D collision)
 	{
-		//turn orb around when hitting a wall
+		//call apropriate function for hitting a wall
 		if (collision.gameObject.CompareTag("Wall"))
 		{
 			movementClass.OnWallCollision();
 		}
-		//Run Player collision on hitting player
+		//call apropriate function for hitting player
 		else if (collision.gameObject.CompareTag("Player"))
 		{
 			playerCollisionClass.OnPlayerCollision();
 		}
-		//Run floor collision on hitting the floor
+		//call apropriate function for hitting the floor
 		else if (collision.gameObject.CompareTag("Floor"))
 		{
 			floorCollisionClass.OnFloorCollision();
