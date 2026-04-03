@@ -26,7 +26,7 @@ public class Spawner : MonoBehaviour
 		{
 			Spawn(valuableEnemyPrefab);
 		}
-		else if (enemy == 2 && shield < 2)
+		else if (enemy == 2 && shield <= 2)
 		{
 			Spawn(shieldingEnemyPrefab);
 		}

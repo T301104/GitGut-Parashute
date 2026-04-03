@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
 	private bool keepSpawning = true;
 
     private int score = 0;
-    private int lives = 5;
+    private int lives = 3;
     private int shield = 0;
 
     [SerializeField] private TextMeshProUGUI scoreText;
@@ -56,8 +56,11 @@ public class GameManager : MonoBehaviour
 
     public void IncreaseShield(int shieldValue)
     {
-        shield += shieldValue;
-		livesText.text = "Lives: " + lives.ToString() + " Shield: " + shield.ToString();
+        if (shieldValue < 2)
+        {
+            shield += shieldValue;
+            livesText.text = "Lives: " + lives.ToString() + " Shield: " + shield.ToString();
+        }
 	}
 
 	public void LooseLives (int damage)
